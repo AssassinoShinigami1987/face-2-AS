@@ -1,0 +1,138 @@
+/* Estilos para o sistema de RPG */
+
+/* Batalha */
+.battle-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.battle-arena {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #2e2e2e;
+    border-radius: 8px;
+}
+
+.battle-status {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.player-status, .enemy-status {
+    padding: 1rem;
+    background-color: #3e3e3e;
+    border-radius: 8px;
+    border: 1px solid #bb86fc;
+}
+
+.hp-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #4e4e4e;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.hp-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.battle-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Perfil */
+.profile-content {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #2e2e2e;
+    border-radius: 8px;
+}
+
+.profile-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #bb86fc;
+}
+
+.profile-stats {
+    flex: 2;
+    padding: 2rem;
+    background-color: #2e2e2e;
+    border-radius: 8px;
+}
+
+/* Inventário */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.inventory-item {
+    background-color: #3e3e3e;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #bb86fc;
+}
+
+/* Missões */
+.quest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quest-item {
+    background-color: #3e3e3e;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #bb86fc;
+}
+
+.quest-progress {
+    width: 100%;
+    height: 10px;
+    background-color: #4e4e4e;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.quest-progress-fill {
+    height: 100%;
+    background-color: #bb86fc;
+    transition: width 0.3s ease;
+} 

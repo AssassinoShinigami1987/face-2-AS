@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face 2 - Rede Social</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/social.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Formulário de Login -->
+        <div id="loginForm" class="auth-form">
+            <div class="auth-header">
+                <h2>Face 2</h2>
+                <p>Conecte-se com seus amigos e compartilhe momentos especiais</p>
+            </div>
+            <form onsubmit="event.preventDefault(); login(document.querySelector('input[name=email]').value, document.querySelector('input[name=password]').value)">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="password-input">
+                        <input type="password" name="password" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            <div class="auth-footer">
+                <p>Não tem uma conta? <a href="#" onclick="showRegisterForm()">Registre-se</a></p>
+            </div>
+        </div>
+
+        <!-- Formulário de Registro -->
+        <div id="registerForm" class="auth-form" style="display: none;">
+            <div class="auth-header">
+                <h2>Criar Conta</h2>
+                <p>Junte-se à nossa comunidade e comece a compartilhar</p>
+            </div>
+            <form onsubmit="event.preventDefault(); register()">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="password-input">
+                        <input type="password" name="password" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirmar Senha</label>
+                    <div class="password-input">
+                        <input type="password" name="confirmPassword" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Registrar</button>
+            </form>
+            <div class="auth-footer">
+                <p>Já tem uma conta? <a href="#" onclick="showLoginForm()">Faça login</a></p>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div id="mainContent" style="display: none;">
+            <!-- Barra de Navegação -->
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <h1>Face 2</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#" onclick="showFeed()" class="active">
+                        <i class="fas fa-home"></i>
+                        <span>Feed</span>
+                    </a>
+                    <a href="#" onclick="showProfile()">
+                        <i class="fas fa-user"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <a href="#" onclick="showMessages()">
+                        <i class="fas fa-comments"></i>
+                        <span>Mensagens</span>
+                    </a>
+                    <a href="#" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                    <a href="#" onclick="showAdmin()" style="display: none;">
+                        <i class="fas fa-cog"></i>
+                        <span>Administração</span>
+                    </a>
+                </div>
+                <div class="nav-user">
+                    <img src="assets/images/default-avatar.png" alt="Avatar">
+                    <span id="userName"></span>
+                    <button onclick="logout()" class="btn-secondary">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Feed -->
+            <div id="feed" class="content-section">
+                <div class="feed-content">
+                    <div class="feed-main">
+                        <!-- Posts serão renderizados aqui -->
+                    </div>
+                    <div class="feed-sidebar">
+                        <div class="friends-preview">
+                            <h3>Amigos</h3>
+                            <div class="friends-grid">
+                                <!-- Amigos serão renderizados aqui -->
+                            </div>
+                        </div>
+                        <div class="trending-topics">
+                            <h3>Tópicos em Destaque</h3>
+                            <div class="topics-list">
+                                <!-- Tópicos serão renderizados aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfil -->
+            <div id="profile" class="content-section">
+                <div class="profile-header">
+                    <div class="profile-cover">
+                        <img src="assets/images/default-cover.jpg" alt="Capa do perfil">
+                    </div>
+                    <div class="profile-info">
+                        <img id="profileAvatar" src="assets/images/default-avatar.png" alt="Avatar">
+                        <div class="profile-details">
+                            <h2 id="profileName"></h2>
+                            <p id="profileBio"></p>
+                            <div class="profile-actions">
+                                <button onclick="showEditProfile()" class="btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Editar Perfil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span id="friendsCount">0</span>
+                        <span>Amigos</span>
+                    </div>
+                    <div class="stat">
+                        <span id="postsCount">0</span>
+                        <span>Posts</span>
+                    </div>
+                    <div class="stat">
+                        <span id="likesCount">0</span>
+                        <span>Curtidas</span>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-posts">
+                        <h3>Meus Posts</h3>
+                        <div id="profilePostsList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensagens -->
+            <div id="messages" class="content-section" style="display: none;">
+                <div class="messages-content">
+                    <div class="messages-sidebar">
+                        <div class="messages-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar conversas...">
+                        </div>
+                        <div class="conversations-list">
+                            <!-- Lista de conversas será renderizada aqui -->
+                        </div>
+                    </div>
+                    <div class="messages-main">
+                        <div class="messages-header">
+                            <div class="conversation-info">
+                                <h3 id="currentConversationName">Selecione uma conversa</h3>
+                                <span id="currentConversationStatus" class="conversation-status"></span>
+                            </div>
+                        </div>
+                        <div class="messages-list">
+                            <!-- Mensagens serão renderizadas aqui -->
+                        </div>
+                        <div class="message-input">
+                            <div class="message-actions">
+                                <button class="btn-icon" onclick="document.getElementById('messageImageInput').click()" title="Enviar imagem">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                                <button class="btn-icon" onclick="document.getElementById('messageAudioInput').click()" title="Enviar áudio">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                                <input type="file" id="messageImageInput" accept="image/*" style="display: none">
+                                <input type="file" id="messageAudioInput" accept="audio/*" style="display: none">
+                            </div>
+                            <input type="text" id="messageInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                            <button class="btn-primary" onclick="sendMessage()" title="Enviar mensagem">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notificações -->
+            <div id="notifications" class="content-section" style="display: none;">
+                <div class="notifications-content">
+                    <div class="notifications-header">
+                        <h2>Notificações</h2>
+                        <button class="btn-secondary" onclick="markAllNotificationsAsRead()">
+                            Marcar todas como lidas
+                        </button>
+                    </div>
+                    <div class="notifications-list">
+                        <!-- Notificações serão renderizadas aqui -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Administração -->
+            <div id="admin" class="content-section" style="display: none;">
+                <div class="admin-header">
+                    <h2>Gerenciamento de Usuários</h2>
+                    <div class="admin-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar usuários...">
+                        </div>
+                        <button class="btn-primary" onclick="exportUsers()">
+                            <i class="fas fa-download"></i>
+                            <span>Exportar Dados</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="users-list">
+                    <!-- Lista de usuários será renderizada aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/social.js"></script>
+</body>
+</html> 

@@ -1,0 +1,92 @@
+LISTA DE USUÁRIOS DO FACE 2
+=========================
+
+ADMINISTRADORES
+--------------
+1. Admin Principal
+   Email: admin@face2.com
+   Senha: Admin@2024#Secure
+   Função: Administrador principal
+
+2. Moderador 1
+   Email: mod1@face2.com
+   Senha: Mod1@2024#Secure
+   Função: Moderador
+
+3. Moderador 2
+   Email: mod2@face2.com
+   Senha: Mod2@2024#Secure
+   Função: Moderador
+
+USUÁRIOS REGULARES
+----------------
+4. João Silva
+   Email: joao@email.com
+   Senha: Joao@2024#Secure
+   Profissão: Desenvolvedor de software
+
+5. Maria Santos
+   Email: maria@email.com
+   Senha: Maria@2024#Secure
+   Profissão: Designer gráfica
+
+6. Pedro Oliveira
+   Email: pedro@email.com
+   Senha: Pedro@2024#Secure
+   Profissão: Estudante de engenharia
+
+7. Ana Costa
+   Email: ana@email.com
+   Senha: Ana@2024#Secure
+   Profissão: Professora de matemática
+
+8. Carlos Pereira
+   Email: carlos@email.com
+   Senha: Carlos@2024#Secure
+   Profissão: Médico
+
+9. Beatriz Lima
+   Email: beatriz@email.com
+   Senha: Beatriz@2024#Secure
+   Profissão: Jornalista
+
+10. Rafael Souza
+    Email: rafael@email.com
+    Senha: Rafael@2024#Secure
+    Profissão: Músico
+
+11. Julia Ferreira
+    Email: julia@email.com
+    Senha: Julia@2024#Secure
+    Profissão: Arquiteta
+
+12. Lucas Mendes
+    Email: lucas@email.com
+    Senha: Lucas@2024#Secure
+    Profissão: Chef de cozinha
+
+13. Mariana Alves
+    Email: mariana@email.com
+    Senha: Mariana@2024#Secure
+    Profissão: Psicóloga
+
+14. Gabriel Santos
+    Email: gabriel@email.com
+    Senha: Gabriel@2024#Secure
+    Profissão: Engenheiro civil
+
+15. Isabela Costa
+    Email: isabela@email.com
+    Senha: Isabela@2024#Secure
+    Profissão: Fotógrafa
+
+NOTAS:
+- Todas as senhas seguem o padrão: Nome@2024#Secure
+- As senhas são complexas, contendo:
+  * Letras maiúsculas
+  * Letras minúsculas
+  * Números
+  * Caracteres especiais (@, #)
+- Todos os usuários podem editar seu próprio perfil
+- Apenas administradores têm acesso à seção de gerenciamento de usuários
+- A seção de administração só é visível para usuários com role "admin" 
