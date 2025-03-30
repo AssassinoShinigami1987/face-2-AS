@@ -49,16 +49,6 @@ O Face 2 é uma rede social moderna e responsiva desenvolvida com HTML, CSS e Ja
 - LocalStorage para persistência de dados
 - Font Awesome para ícones
 
-## Como Usar
-
-1. Clone o repositório
-2. Abra o arquivo `index.html` em um navegador moderno
-3. Use as credenciais de administrador ou crie uma nova conta
-
-### Credenciais de Administrador
-- Email: admin@face2.com
-- Senha: Admin@2024#Secure
-
 ## Recursos de Segurança
 - Senhas complexas e seguras
 - Validação de dados
